@@ -36,20 +36,28 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _Horizontal = Input.GetAxisRaw("Horizontal");
+
+    }
+
+    void MovePlayer()
+    {
+        rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
+    }
+
+    void MoveInvertedPlayer()
+    {
+        if (IsInverted)
+        {
+            rigidBody2D.velocity = new Vector2(-_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
+        }
     }
 
     private void FixedUpdate()
     {
         if (!LevelManager.Instance.LevelComplete)
         {
-            if (IsInverted)
-            {
-                rigidBody2D.velocity = new Vector2(-_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
-            }
-            else
-            {
-                rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
-            }
+            MovePlayer();
+            MoveInvertedPlayer();
         }
     }
 

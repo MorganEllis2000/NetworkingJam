@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3462726340786366767}
   - component: {fileID: 2628442045693763294}
   - component: {fileID: 1014295454851726443}
-  - component: {fileID: 8062771487626749247}
   m_Layer: 0
   m_Name: InvertedPlayer
   m_TagString: Untagged
@@ -149,18 +148,3 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0035238266, y: 0.0017611185}
   m_Size: {x: 0.2177461, y: 0.2698803}
   m_Direction: 0
---- !u!114 &8062771487626749247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9154465116451424051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 569bbd1a8eb6f4443b3cb741ebfa827a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  f_RunSpeed: 5.5
-  spriteRenderer: {fileID: 0}
-  IsInverted: 1

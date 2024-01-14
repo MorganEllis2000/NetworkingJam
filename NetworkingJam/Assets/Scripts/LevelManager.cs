@@ -6,12 +6,15 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
+    [SerializeField] private PlayerController Player;
+    [SerializeField] private PlayerController InvertedPlayer;
+
     public bool PlayerFinished;
     public bool InvertedFinished;
     public bool LevelComplete;
 
-    [SerializeField] private Transform StartingPos;
-    [SerializeField] private Transform InvertedStartingPos;
+    [SerializeField] private Vector3 StartingPos;
+    [SerializeField] private Vector3 InvertedStartingPos;
     
     public static LevelManager Instance { get; private set; }
     private void Awake() {
@@ -21,6 +24,9 @@ public class LevelManager : MonoBehaviour
         }
 
         Instance = this;
+
+        Player.transform.position = StartingPos;
+        InvertedPlayer.transform.position = InvertedStartingPos;
     }
     
     
