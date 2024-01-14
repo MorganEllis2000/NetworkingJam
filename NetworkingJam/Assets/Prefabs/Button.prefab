@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.52, y: -4.288, z: 0}
-  m_LocalScale: {x: 4.5199003, y: 4.5199003, z: 0.45199}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b7cfa92c7176eea4fa4d5682f346734a, type: 3}
+  m_Sprite: {fileID: -1544334786, guid: 7b404901244b7ea44bbb5ca3600f1e4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.18, y: 0.18}
+  m_Size: {x: 0.5, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -123,20 +123,20 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.18}
-    newSize: {x: 0.18, y: 0.18}
+    oldSize: {x: 0.5, y: 0.25}
+    newSize: {x: 0.5, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.028801901, y: -0.051404603}
-      - {x: -0.053974375, y: -0.072884336}
-      - {x: -0.08167623, y: -0.08944505}
-      - {x: 0.08112129, y: -0.08944505}
-      - {x: 0.060304403, y: -0.07632692}
-      - {x: 0.03298746, y: -0.05057954}
+    - - {x: -0.09676741, y: 0.12983778}
+      - {x: -0.21982978, y: 0.032273486}
+      - {x: -0.2524879, y: -0.12611866}
+      - {x: 0.2523583, y: -0.12748724}
+      - {x: 0.21846652, y: 0.03147511}
+      - {x: 0.10095297, y: 0.13519388}
   m_UseDelaunayMesh: 0
 --- !u!114 &7263502037956798700
 MonoBehaviour:
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e31ed9dec297e749aeb8fca965bf1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpSprite: {fileID: 21300000, guid: b7cfa92c7176eea4fa4d5682f346734a, type: 3}
-  DownSprite: {fileID: 21300000, guid: 939491a9fa8310d44aafd74affdfa430, type: 3}
+  UpSprite: {fileID: -1544334786, guid: 7b404901244b7ea44bbb5ca3600f1e4f, type: 3}
+  DownSprite: {fileID: 1196019188, guid: 7b404901244b7ea44bbb5ca3600f1e4f, type: 3}
   DoorToOpen: {fileID: 0}
 --- !u!61 &7035242338563533459
 BoxCollider2D:
@@ -189,8 +189,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.18}
-    newSize: {x: 0.18, y: 0.18}
+    oldSize: {x: 0.5, y: 0.25}
+    newSize: {x: 0.5, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
