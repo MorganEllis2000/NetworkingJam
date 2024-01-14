@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
     public bool PlayerFinished;
     public bool InvertedFinished;
     public bool LevelComplete;
+
+    [SerializeField] private Transform StartingPos;
+    [SerializeField] private Transform InvertedStartingPos;
     
     public static LevelManager Instance { get; private set; }
     private void Awake() {
