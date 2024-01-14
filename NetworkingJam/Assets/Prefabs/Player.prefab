@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6037443934333367095}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569bbd1a8eb6f4443b3cb741ebfa827a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  f_RunSpeed: 5.5
+  f_RunSpeed: 5.8
   spriteRenderer: {fileID: 0}
   IsInverted: 0
 --- !u!70 &6037443934333367095
