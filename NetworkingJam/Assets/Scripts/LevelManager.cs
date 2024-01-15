@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -23,6 +25,10 @@ public class LevelManager : MonoBehaviour
     public bool IsClockwise;
     public bool IsAntiClockwise;
     public bool IsCentral;
+
+    public int nextSceneLoad;
+
+    [SerializeField] private GameObject LevelFinishPanel;
     
     public static LevelManager Instance { get; private set; }
     private void Awake() {
@@ -41,7 +47,12 @@ public class LevelManager : MonoBehaviour
 
         IsCentral = true;
     }
-    
+
+    private void Start()
+    {
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+    }
+
 
     public void ResetLevel()
     {
@@ -83,8 +94,19 @@ public class LevelManager : MonoBehaviour
         if (PlayerFinished && InvertedFinished)
         {
             LevelComplete = true;
+            LevelFinished();
         }
+    }
 
+    public void LevelFinished()
+    {
+        if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+        {
+            PlayerPrefs.SetInt("levelAt", nextSceneLoad);
+        }
+        
+        LevelFinishPanel.SetActive(true);
+        
 
     }
 }
