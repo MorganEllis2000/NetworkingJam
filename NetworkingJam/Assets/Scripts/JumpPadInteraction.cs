@@ -29,14 +29,14 @@ public class JumpPadInteraction : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = DownSprite;
             //other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, JumpHeight);
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce( Vector2.up * JumpHeight, ForceMode2D.Impulse);
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce( Vector2.up * JumpHeight * 30 * Time.deltaTime, ForceMode2D.Impulse);
             
         }
     }
 
     private IEnumerator ResetSprite()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.05f);
         this.GetComponent<SpriteRenderer>().sprite = UpSprite;
     }
 
