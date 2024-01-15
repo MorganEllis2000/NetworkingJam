@@ -5,19 +5,7 @@ using UnityEngine;
 
 public class KeyInteration : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
-    
+    [SerializeField] private AudioSource SFX;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,6 +17,11 @@ public class KeyInteration : MonoBehaviour
         {
             LevelManager.Instance.InvertedKey = true;
             this.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (!SFX.isPlaying)
+        {
+            SFX.Play();
         }
     }
 }

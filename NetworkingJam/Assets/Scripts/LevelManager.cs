@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     public int nextSceneLoad;
 
     [SerializeField] private GameObject LevelFinishPanel;
+    [SerializeField] private GameObject PausePanel;
     
     public static LevelManager Instance { get; private set; }
     private void Awake() {
@@ -51,6 +52,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        Cursor.visible = false;
+        Time.timeScale = 1.0f;
     }
 
 
@@ -84,10 +87,29 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            ResetLevel();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //ResetLevel();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
         }
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0.0f;
+        Cursor.visible = true;
+        PausePanel.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1.0f;
+        Cursor.visible = false;
+        PausePanel.SetActive(false);
+    }
 
     private void FixedUpdate()
     {
