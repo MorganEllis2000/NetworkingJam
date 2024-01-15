@@ -28,8 +28,9 @@ public class JumpPadInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             this.GetComponent<SpriteRenderer>().sprite = DownSprite;
-            //other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, JumpHeight * JumpSpeed * Time.deltaTime);
+            //other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, JumpHeight);
             other.gameObject.GetComponent<Rigidbody2D>().AddForce( Vector2.up * JumpHeight, ForceMode2D.Impulse);
+            
         }
     }
 
@@ -42,5 +43,6 @@ public class JumpPadInteraction : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         StartCoroutine(ResetSprite());
+        other.gameObject.GetComponent<PlayerController>().IsGrounded = true;
     }
 }

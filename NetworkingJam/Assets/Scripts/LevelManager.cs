@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
     public bool Key;
     public bool InvertedKey;
     
+    public bool IsClockwise;
+    public bool IsAntiClockwise;
+    public bool IsCentral;
+    
     public static LevelManager Instance { get; private set; }
     private void Awake() {
 
@@ -35,7 +39,7 @@ public class LevelManager : MonoBehaviour
         Player.transform.position = StartingPos;
         InvertedPlayer.transform.position = InvertedStartingPos;
 
-
+        IsCentral = true;
     }
     
 

@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     
     private float _Horizontal;
 
-    private bool IsGrounded;
+    public bool IsGrounded;
 
     public bool IsInverted;
 
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        IsGrounded = true;
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -48,37 +49,39 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (_Horizontal == 1 || _Horizontal == -1)
+        /*if (IsGrounded)
         {
-            Acceleration = TopSpeed / AccelerationTime;
-            
-            Speed += Acceleration * Time.deltaTime;
-        
-            if(Speed > TopSpeed)
+            if (_Horizontal == 1 || _Horizontal == -1)
             {
-                Speed = TopSpeed;
+                Acceleration = TopSpeed / AccelerationTime;
+            
+                Speed += Acceleration * Time.deltaTime;
+        
+                if(Speed > TopSpeed)
+                {
+                    Speed = TopSpeed;
+                }
+        
+                Velocity = new Vector2(Speed * _Horizontal * Time.deltaTime, rigidBody2D.velocity.y);
+            
+            }
+            else
+            {
+                Speed = 0.0f;
+                Acceleration = 0.0f;
+                Velocity = new Vector2(0, rigidBody2D.velocity.y);
             }
         
-            Velocity = new Vector2(Speed * _Horizontal * Time.deltaTime, 0f);
-            
-        }
-        else
-        {
-            Speed = 0.0f;
-            Acceleration = 0.0f;
-            Velocity = new Vector2(0, 0);
-        }
+            rigidBody2D.velocity = Velocity;
+        }*/
+
         
-        rigidBody2D.velocity = Velocity;
-        
-        
-        
-        //rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
+        rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
     }
 
     void MoveInvertedPlayer()
     {
-        if (_Horizontal == 1 || _Horizontal == -1)
+        /*if (_Horizontal == 1 || _Horizontal == -1)
         {
             Acceleration = TopSpeed / AccelerationTime;
             
@@ -89,17 +92,19 @@ public class PlayerController : MonoBehaviour
                 Speed = TopSpeed;
             }
         
-            Velocity = new Vector2(Speed * -_Horizontal * Time.deltaTime, 0f);
+            Velocity = new Vector2(Speed * -_Horizontal * Time.deltaTime, rigidBody2D.velocity.y);
             
         }
         else
         {
             Speed = 0.0f;
             Acceleration = 0.0f;
-            Velocity = new Vector2(0, 0);
+            Velocity = new Vector2(0, rigidBody2D.velocity.y);
         }
         
-        rigidBody2D.velocity = Velocity;
+        rigidBody2D.velocity = Velocity;*/
+        
+        rigidBody2D.velocity = new Vector2(-_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
     }
 
     private void FixedUpdate()
