@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpSprite: {fileID: -2016839694, guid: 7b404901244b7ea44bbb5ca3600f1e4f, type: 3}
   DownSprite: {fileID: -1580991697, guid: 7b404901244b7ea44bbb5ca3600f1e4f, type: 3}
-  JumpHeight: 30
+  JumpHeight: 4
 --- !u!61 &5337474416592670540
 BoxCollider2D:
   m_ObjectHideFlags: 0
