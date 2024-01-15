@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
 
     public bool IsInverted;
 
+    [SerializeField] private float Acceleration = 0;
+    [SerializeField] private float TopSpeed = 10;
+    [SerializeField] private float AccelerationTime = 3.0f;
+    [SerializeField] private float Speed = 0;
+    [SerializeField] private Vector2 Velocity = new Vector2(0, 0);
+    
+
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -41,23 +48,75 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
+        if (_Horizontal == 1 || _Horizontal == -1)
+        {
+            Acceleration = TopSpeed / AccelerationTime;
+            
+            Speed += Acceleration * Time.deltaTime;
+        
+            if(Speed > TopSpeed)
+            {
+                Speed = TopSpeed;
+            }
+        
+            Velocity = new Vector2(Speed * _Horizontal * Time.deltaTime, 0f);
+            
+        }
+        else
+        {
+            Speed = 0.0f;
+            Acceleration = 0.0f;
+            Velocity = new Vector2(0, 0);
+        }
+        
+        rigidBody2D.velocity = Velocity;
+        
+        
+        
+        //rigidBody2D.velocity = new Vector2(_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
     }
 
     void MoveInvertedPlayer()
     {
-        if (IsInverted)
+        if (_Horizontal == 1 || _Horizontal == -1)
         {
-            rigidBody2D.velocity = new Vector2(-_Horizontal * f_RunSpeed, rigidBody2D.velocity.y);
+            Acceleration = TopSpeed / AccelerationTime;
+            
+            Speed += Acceleration * Time.deltaTime;
+        
+            if(Speed > TopSpeed)
+            {
+                Speed = TopSpeed;
+            }
+        
+            Velocity = new Vector2(Speed * -_Horizontal * Time.deltaTime, 0f);
+            
         }
+        else
+        {
+            Speed = 0.0f;
+            Acceleration = 0.0f;
+            Velocity = new Vector2(0, 0);
+        }
+        
+        rigidBody2D.velocity = Velocity;
     }
 
     private void FixedUpdate()
     {
         if (!LevelManager.Instance.LevelComplete)
         {
-            MovePlayer();
-            MoveInvertedPlayer();
+            
+
+            if (IsInverted)
+            {
+                MoveInvertedPlayer();
+            }
+            else
+            {
+                MovePlayer();
+            }
+            
         }
     }
 

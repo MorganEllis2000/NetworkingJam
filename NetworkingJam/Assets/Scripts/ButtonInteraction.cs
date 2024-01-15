@@ -9,25 +9,18 @@ public class ButtonInteraction : MonoBehaviour
     [SerializeField] private Sprite UpSprite;
     [SerializeField] private Sprite DownSprite;
     [SerializeField] private DoorInteraction DoorToOpen;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && DoorToOpen.DoorOpened == false)
         {
             this.GetComponent<SpriteRenderer>().sprite = DownSprite;
             DoorToOpen.OpenDoor();
         }
+    }
+
+    public void ResetButton()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = UpSprite;
     }
 }

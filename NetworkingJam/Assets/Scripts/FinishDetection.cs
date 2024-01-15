@@ -24,12 +24,23 @@ public class FinishDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player" && LevelManager.Instance.Key == true)
         {
             LevelManager.Instance.PlayerFinished = true;
-        } else if (other.gameObject.name == "InvertedPlayer")
+        } else if (other.gameObject.name == "InvertedPlayer" && LevelManager.Instance.InvertedKey == true)
         {
             LevelManager.Instance.InvertedFinished = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            LevelManager.Instance.PlayerFinished = false;
+        } else if (other.gameObject.name == "InvertedPlayer")
+        {
+            LevelManager.Instance.InvertedFinished = false;
         }
     }
 }

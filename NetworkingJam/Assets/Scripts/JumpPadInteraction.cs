@@ -28,7 +28,8 @@ public class JumpPadInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             this.GetComponent<SpriteRenderer>().sprite = DownSprite;
-            other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, JumpHeight);
+            //other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, JumpHeight * JumpSpeed * Time.deltaTime);
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce( Vector2.up * JumpHeight, ForceMode2D.Impulse);
         }
     }
 

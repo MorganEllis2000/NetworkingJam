@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -15,6 +16,9 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private Vector3 StartingPos;
     [SerializeField] private Vector3 InvertedStartingPos;
+
+    public bool Key;
+    public bool InvertedKey;
     
     public static LevelManager Instance { get; private set; }
     private void Awake() {
@@ -25,21 +29,50 @@ public class LevelManager : MonoBehaviour
 
         Instance = this;
 
+        Player = GameObject.Find("Player").gameObject.GetComponent<PlayerController>();
+        InvertedPlayer = GameObject.Find("InvertedPlayer").gameObject.GetComponent<PlayerController>();
+        
         Player.transform.position = StartingPos;
         InvertedPlayer.transform.position = InvertedStartingPos;
+
+
     }
     
-    
-    void Start()
+
+    public void ResetLevel()
     {
+        Player.transform.position = StartingPos;
+        InvertedPlayer.transform.position = InvertedStartingPos;
+
+        Key = false;
+        InvertedKey = false;
+        PlayerFinished = false;
+        InvertedFinished = false;
+
+        foreach (KeyInteration i in FindObjectsOfType<KeyInteration>())
+        {
+            i.GetComponent<SpriteRenderer>().enabled = true;
+        }
         
+        foreach (DoorInteraction i in FindObjectsOfType<DoorInteraction>())
+        {
+            i.CloseDoor();
+        }
+        
+        foreach (ButtonInteraction i in FindObjectsOfType<ButtonInteraction>())
+        {
+            i.ResetButton();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetLevel();
+        }
     }
+
 
     private void FixedUpdate()
     {
@@ -47,5 +80,7 @@ public class LevelManager : MonoBehaviour
         {
             LevelComplete = true;
         }
+
+
     }
 }
