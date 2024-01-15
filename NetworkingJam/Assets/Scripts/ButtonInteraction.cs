@@ -9,6 +9,7 @@ public class ButtonInteraction : MonoBehaviour
     [SerializeField] private Sprite UpSprite;
     [SerializeField] private Sprite DownSprite;
     [SerializeField] private DoorInteraction DoorToOpen;
+    [SerializeField] private AudioSource SFX;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,6 +17,10 @@ public class ButtonInteraction : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = DownSprite;
             DoorToOpen.OpenDoor();
+            if (!SFX.isPlaying)
+            {
+                SFX.Play();
+            }
         }
     }
 
