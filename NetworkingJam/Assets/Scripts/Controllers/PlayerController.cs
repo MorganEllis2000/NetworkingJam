@@ -13,26 +13,30 @@ public class PlayerController : MonoBehaviour
         FALLING
     }
 
-    private PlayerDirection playerDirection;
+    protected PlayerDirection playerDirection;
 
     [Tooltip("This describes how fast the player will move")] [Range(0f, 30f)] [SerializeField]
     protected float f_RunSpeed = 0.0f;
 
     protected Rigidbody2D rigidBody2D;
-    public SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
     
-    private float _Horizontal;
+    protected float _Horizontal;
 
     public bool IsGrounded;
 
     public bool IsInverted;
 
-    [SerializeField] private float Acceleration = 0;
-    [SerializeField] private float TopSpeed = 10;
-    [SerializeField] private float AccelerationTime = 3.0f;
-    [SerializeField] private float Speed = 0;
-    [SerializeField] private Vector2 Velocity = new Vector2(0, 0);
-    
+    [SerializeField] protected float Acceleration = 0;
+    [SerializeField] protected float TopSpeed = 10;
+    [SerializeField] protected float AccelerationTime = 3.0f;
+    [SerializeField] protected float Speed = 0;
+    [SerializeField] protected Vector2 Velocity = new Vector2(0, 0);
+
+    protected Bounds _cameraBounds;
+    protected Vector3 _targetPosition;
+
+    [SerializeField] protected Camera _camera;
 
     void Start()
     {
@@ -44,7 +48,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _Horizontal = Input.GetAxisRaw("Horizontal");
-
     }
 
     void MovePlayer()
@@ -111,8 +114,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!LevelManager.Instance.LevelComplete)
         {
-            
-
             if (IsInverted)
             {
                 MoveInvertedPlayer();

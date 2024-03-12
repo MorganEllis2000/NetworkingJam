@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        levelAt = PlayerPrefs.GetInt("levelAt", 2);
+        levelAt = PlayerPrefs.GetInt("levelAt", 1);
 
         for (int i = 0; i < lvlButtons.Length; i++)
         {
@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.P))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 }

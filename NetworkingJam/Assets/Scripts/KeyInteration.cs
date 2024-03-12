@@ -9,19 +9,26 @@ public class KeyInteration : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player" && !LevelManager.Instance.Key)
         {
             LevelManager.Instance.Key = true;
             this.GetComponent<SpriteRenderer>().enabled = false;
-        } else if (other.gameObject.name == "InvertedPlayer")
+            
+            if (!SFX.isPlaying)
+            {
+                SFX.Play();
+            }
+        } else if (other.gameObject.name == "InvertedPlayer" && !LevelManager.Instance.InvertedKey)
         {
             LevelManager.Instance.InvertedKey = true;
             this.GetComponent<SpriteRenderer>().enabled = false;
+            
+            if (!SFX.isPlaying)
+            {
+                SFX.Play();
+            }
         }
 
-        if (!SFX.isPlaying)
-        {
-            SFX.Play();
-        }
+
     }
 }

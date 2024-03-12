@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
 
-    [SerializeField] private PlayerController Player;
+    [SerializeField] private ForwardController Player;
     [SerializeField] private PlayerController InvertedPlayer;
 
     public bool PlayerFinished;
@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private GameObject LevelFinishPanel;
     [SerializeField] private GameObject PausePanel;
+
+    [SerializeField] private AudioSource Music;
     
     public static LevelManager Instance { get; private set; }
     private void Awake() {
@@ -40,7 +42,7 @@ public class LevelManager : MonoBehaviour
 
         Instance = this;
 
-        Player = GameObject.Find("Player").gameObject.GetComponent<PlayerController>();
+        Player = GameObject.Find("Player").gameObject.GetComponent<ForwardController>();
         InvertedPlayer = GameObject.Find("InvertedPlayer").gameObject.GetComponent<PlayerController>();
         
         Player.transform.position = StartingPos;
@@ -54,6 +56,11 @@ public class LevelManager : MonoBehaviour
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
         Cursor.visible = false;
         Time.timeScale = 1.0f;
+
+        if (!Music.isPlaying)
+        {
+            Music.Play();
+        }
     }
 
 
@@ -122,13 +129,13 @@ public class LevelManager : MonoBehaviour
 
     public void LevelFinished()
     {
-        if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
+        if (nextSceneLoad > PlayerPrefs.GetInt("levelAt") && nextSceneLoad < 7)
         {
             PlayerPrefs.SetInt("levelAt", nextSceneLoad);
         }
         
         LevelFinishPanel.SetActive(true);
-        
 
+        Cursor.visible = true;
     }
 }
