@@ -8539,43 +8539,17 @@ Transform:
   - {fileID: 1482549955}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &875257658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9154465116451424051, guid: 988640136d056a94899ddfb96687dccc, type: 3}
-  m_PrefabInstance: {fileID: 957841123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &875257661 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -4937163958381861143, guid: 988640136d056a94899ddfb96687dccc, type: 3}
   m_PrefabInstance: {fileID: 957841123}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875257658}
+  m_GameObject: {fileID: 0}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 569bbd1a8eb6f4443b3cb741ebfa827a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &875257665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875257658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204211288da0e9d469d738be3e563bff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  f_RunSpeed: 5.5
-  IsGrounded: 0
-  IsInverted: 0
-  Acceleration: 0
-  TopSpeed: 10
-  AccelerationTime: 3
-  Speed: 0
-  Velocity: {x: 0, y: 0}
-  _camera: {fileID: 0}
 --- !u!4 &875257666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7453298620204289819, guid: 988640136d056a94899ddfb96687dccc, type: 3}
@@ -8693,22 +8667,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4937163958381861143, guid: 988640136d056a94899ddfb96687dccc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2628442045693763294, guid: 988640136d056a94899ddfb96687dccc, type: 3}
-      propertyPath: m_Mass
-      value: 0.15696202
-      objectReference: {fileID: 0}
-    - target: {fileID: 3189597817965655675, guid: 988640136d056a94899ddfb96687dccc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4195596913735352315, guid: 988640136d056a94899ddfb96687dccc, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7453298620204289819, guid: 988640136d056a94899ddfb96687dccc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.49
@@ -8753,18 +8711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvertedPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 9154465116451424051, guid: 988640136d056a94899ddfb96687dccc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3189597817965655675, guid: 988640136d056a94899ddfb96687dccc, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9154465116451424051, guid: 988640136d056a94899ddfb96687dccc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 875257665}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988640136d056a94899ddfb96687dccc, type: 3}
 --- !u!20 &1151139580 stripped
 Camera:
